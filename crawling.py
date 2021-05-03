@@ -1,6 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
-URL = 'https://sports.news.naver.com/news.nhn?oid=076&aid=0003724055'
-res = requests.get(URL,verify=False)
+URL = 'https://news.v.daum.net/v/20210502202020111'
+res = requests.get(URL)
 soup = BeautifulSoup(res.content, "html.parser")
-print(soup)
+data = soup.find_all('div','layer_util layer_summary')
+
+print(data.get_text())
